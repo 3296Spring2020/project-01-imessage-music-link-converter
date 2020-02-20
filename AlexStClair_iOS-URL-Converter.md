@@ -28,8 +28,15 @@ Attached is a link to the github repo. Xcode must be used to work on the project
 
 ***Building***
 - As stated above, Xcode must be used for this project. Since we are using swift, Xcode will have all of the resources that we will need.
-- Allow plenty of time for the first build. Setting up the emulator does take a bit of time, especially if you are now using Xcode for the first time . 
+- Allow plenty of time for the first build. Setting up the emulator does take a bit of time, especially if you are now using Xcode for the first time. 
+- Here are the instructions:
 
+1. Download and instal Xcode (and locate your Xcodeprojects folder)
+2. Then go to GitHub, click clone or download on the repo, then download ZIP. 
+3. Extract folder and place folder in Xcodeprojects
+4. Rename the folder “urlconverter” (it gets renamed when you download from github
+5. Go back to Xcode, and go to File -> open -> urlconverter
+6. It will ask if you want to open, confirm this. You will not have to do this every time.
 
 **Running**
 - Do not contains a main so do not run the expected way. 
