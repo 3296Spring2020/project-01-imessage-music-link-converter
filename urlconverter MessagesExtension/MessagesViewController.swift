@@ -67,10 +67,12 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called after the extension transitions to a new presentation style
         // Use this method to finalize any behaviors associated with the change in presentation style.
         
-        /*  Now that we are in expanded view,
+        /*  If we are in expanded view,
          we want to reset the cursor so the
          keyboard stays open */
-        textBox.sendActions(for: .touchUpInside);
+        if(presentationStyle == .expanded){
+            textBox.sendActions(for: .touchUpInside);
+        }
     }
     
     /**
