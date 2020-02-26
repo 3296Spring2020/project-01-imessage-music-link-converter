@@ -12,10 +12,10 @@ import Messages
 class MessagesViewController: MSMessagesAppViewController {
     
     //global variables
-    @IBOutlet weak var textBox: UITextField!
+    @IBOutlet weak var textBox: UITextField!    //the text box in the UI
+    @IBOutlet weak var enterButton: UIButton!   //the enter button in the UI
     var origLink = "";
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -64,9 +64,24 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called after the extension transitions to a new presentation style.
-    
+        // Called after the extension transitions to a new presentation style
         // Use this method to finalize any behaviors associated with the change in presentation style.
+        
+        /*  Now that we are in expanded view,
+         we want to reset the cursor so the
+         keyboard stays open */
+        textBox.sendActions(for: .touchUpInside);
+    }
+    
+    /**
+     Event handler for a touch on the textBox
+     */
+    @IBAction func onTextBoxClick() {
+        //we want to force the expanded view when the user clicks the box
+        //this is so that it is not obstructed by the keyboard
+        if(presentationStyle == .compact){
+            requestPresentationStyle(.expanded);
+        }
     }
     
     /**
@@ -78,6 +93,9 @@ class MessagesViewController: MSMessagesAppViewController {
             origLink = textBox.text!;
             //origLink now contains the link that the user entered
             print(origLink);
+        }
+        else{
+            print("No link has been entered.");
         }
     }
 }
