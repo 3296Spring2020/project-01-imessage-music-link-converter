@@ -39,10 +39,8 @@ Attached is a link to the github repo. Xcode must be used to work on the project
 6. It will ask if you want to open, confirm this. You will not have to do this every time.
 
 **Running**
-- Do not contains a main so do not run the expected way. 
-- Select "Run Tests" from Run menu in NetBeans. 
-
 - The run button is the play button on the top left, as stated  in "Background". This also takes time to start up, so please be patient. Once the emulator is open, navigate to one of the conversations in messages and select the unedited icon (white with a gray grid) from the iMessage app tray. This will open the first screen. 
+- Given that we are working on the newest version of Swift, the suggested emulator to use is one of the newer iPhones. The simulator seems to be buggy with iMessage applications, I found that using an iPhone 8 (the oldest device that supports the newest Swift) performs more seamlessly. 
 
 ## Required Resources
 * Group member's competencies
