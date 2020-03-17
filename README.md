@@ -44,4 +44,4 @@ Attached is a link to the github repo. Xcode must be used to work on the project
 
 ## Required Resources
 * Group member's competencies
-* Xcode 11.3.1 (older versions may or may not work, but the version I am using is 11.3.1).
+* Xcode 11.3.1 on Macbook (older versions may or may not work, but the version I am using is 11.3.1. Xcode is a Macbook exclusive, but VMs do exist. Macbook preferred but not required.)
