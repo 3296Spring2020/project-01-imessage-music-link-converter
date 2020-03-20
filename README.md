@@ -3,9 +3,9 @@
 (For the project board, refer to the "Projects" tab above) 
 
 ### Team Members ###
-Alex St.Clair
-Juvenal Arellano-Santana
-Natnail Getachew Belete
+* Alex St.Clair
+* Juvenal Arellano-Santana
+* Natnail Getachew Belete
 
 ## Project Abstract
 I have experienced many times the situation where I use a different music streaming platform than my friends, but want to send them a link to a song/artist. Currently, I have to go into the other platform, make a search, and find the song/artist to share with my friends. 
