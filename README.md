@@ -1,5 +1,12 @@
 # iMessage Music Link Converter
 
+(For the project board, refer to the "Projects" tab above) 
+
+### Team Members ###
+Alex St.Clair
+Juvenal Arellano-Santana
+Natnail Getachew Belete
+
 ## Project Abstract
 I have experienced many times the situation where I use a different music streaming platform than my friends, but want to send them a link to a song/artist. Currently, I have to go into the other platform, make a search, and find the song/artist to share with my friends. 
 My project will take the form of a standalone iOS Message App Extension, and will take from the user a link to a certain song or artist on either Spotify or Apple Music, and not only translate that link to one from the alternate platform, but also send that new link straight to the other person in an iOS Message. This will use Web APIs for both platforms as well as the framework used to create iMessage extensions. 
