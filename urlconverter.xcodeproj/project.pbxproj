@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1590DAB5D0175B9C5DCBE82A /* Pods_urlconverter_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1528D6FF370EA0B648DD1AD8 /* Pods_urlconverter_MessagesExtension.framework */; };
+		4CD2F855DB1BBD3CB26C820F /* Pods_urlconverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C08FFAF1F63D2FC80B5155E /* Pods_urlconverter.framework */; };
 		60DB290923E920F100C1A0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DB290823E920F100C1A0FD /* Assets.xcassets */; };
 		60DB291023E920F100C1A0FD /* urlconverter MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 60DB290F23E920F100C1A0FD /* urlconverter MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		60DB291523E920F100C1A0FD /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DB291423E920F100C1A0FD /* Messages.framework */; };
@@ -40,6 +42,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1528D6FF370EA0B648DD1AD8 /* Pods_urlconverter_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_urlconverter_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C08FFAF1F63D2FC80B5155E /* Pods_urlconverter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_urlconverter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58695D0D101CEB4D6C1C5887 /* Pods-urlconverter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-urlconverter.release.xcconfig"; path = "Target Support Files/Pods-urlconverter/Pods-urlconverter.release.xcconfig"; sourceTree = "<group>"; };
 		60DB290523E920EF00C1A0FD /* urlconverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urlconverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DB290823E920F100C1A0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60DB290A23E920F100C1A0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,20 +54,44 @@
 		60DB291A23E920F100C1A0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		60DB291C23E920F100C1A0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60DB291E23E920F100C1A0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5FBD83B6A361711C8D69800 /* Pods-urlconverter MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-urlconverter MessagesExtension.debug.xcconfig"; path = "Target Support Files/Pods-urlconverter MessagesExtension/Pods-urlconverter MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		E43E3333094CAAE5EE98B365 /* Pods-urlconverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-urlconverter.debug.xcconfig"; path = "Target Support Files/Pods-urlconverter/Pods-urlconverter.debug.xcconfig"; sourceTree = "<group>"; };
+		EC7E5FF78C0C9127AC83C2D3 /* Pods-urlconverter MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-urlconverter MessagesExtension.release.xcconfig"; path = "Target Support Files/Pods-urlconverter MessagesExtension/Pods-urlconverter MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1AD9F6C1CA43FF656C067C18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CD2F855DB1BBD3CB26C820F /* Pods_urlconverter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		60DB290C23E920F100C1A0FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				60DB291523E920F100C1A0FD /* Messages.framework in Frameworks */,
+				1590DAB5D0175B9C5DCBE82A /* Pods_urlconverter_MessagesExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34AE535EEFAB8F8977D0EF4F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E43E3333094CAAE5EE98B365 /* Pods-urlconverter.debug.xcconfig */,
+				58695D0D101CEB4D6C1C5887 /* Pods-urlconverter.release.xcconfig */,
+				C5FBD83B6A361711C8D69800 /* Pods-urlconverter MessagesExtension.debug.xcconfig */,
+				EC7E5FF78C0C9127AC83C2D3 /* Pods-urlconverter MessagesExtension.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		60DB28FE23E920EF00C1A0FD = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +99,7 @@
 				60DB291623E920F100C1A0FD /* urlconverter MessagesExtension */,
 				60DB291323E920F100C1A0FD /* Frameworks */,
 				60DB290623E920EF00C1A0FD /* Products */,
+				34AE535EEFAB8F8977D0EF4F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				60DB291423E920F100C1A0FD /* Messages.framework */,
+				1C08FFAF1F63D2FC80B5155E /* Pods_urlconverter.framework */,
+				1528D6FF370EA0B648DD1AD8 /* Pods_urlconverter_MessagesExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,8 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60DB292523E920F100C1A0FD /* Build configuration list for PBXNativeTarget "urlconverter" */;
 			buildPhases = (
+				6DA51568F254EB6C0EFD853B /* [CP] Check Pods Manifest.lock */,
 				60DB290323E920EF00C1A0FD /* Resources */,
 				60DB292423E920F100C1A0FD /* Embed App Extensions */,
+				1AD9F6C1CA43FF656C067C18 /* Frameworks */,
+				D8F5AD465E9B3B094AF335C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,6 +169,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60DB292123E920F100C1A0FD /* Build configuration list for PBXNativeTarget "urlconverter MessagesExtension" */;
 			buildPhases = (
+				03E38C5D208B1278DC4FA862 /* [CP] Check Pods Manifest.lock */,
 				60DB290B23E920F100C1A0FD /* Sources */,
 				60DB290C23E920F100C1A0FD /* Frameworks */,
 				60DB290D23E920F100C1A0FD /* Resources */,
@@ -203,6 +239,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03E38C5D208B1278DC4FA862 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-urlconverter MessagesExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DA51568F254EB6C0EFD853B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-urlconverter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8F5AD465E9B3B094AF335C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-urlconverter/Pods-urlconverter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-urlconverter/Pods-urlconverter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-urlconverter/Pods-urlconverter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60DB290B23E920F100C1A0FD /* Sources */ = {
@@ -351,6 +451,7 @@
 		};
 		60DB292223E920F100C1A0FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5FBD83B6A361711C8D69800 /* Pods-urlconverter MessagesExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
@@ -371,6 +472,7 @@
 		};
 		60DB292323E920F100C1A0FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC7E5FF78C0C9127AC83C2D3 /* Pods-urlconverter MessagesExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
@@ -391,6 +493,7 @@
 		};
 		60DB292623E920F100C1A0FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E43E3333094CAAE5EE98B365 /* Pods-urlconverter.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -407,6 +510,7 @@
 		};
 		60DB292723E920F100C1A0FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58695D0D101CEB4D6C1C5887 /* Pods-urlconverter.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
