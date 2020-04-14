@@ -1,9 +1,20 @@
 from botObject import musicbot
-def main():
-    token = musicbot.ps("https://open.spotify.com/playlist/37i9dQZF1DX4zbZrYRGVam")
-    print(token) 
+import discord
+import picklerick
+import re
 
-if __name__ == '__main__':
-   b = musicbot('Njk2NDM4MzEzMjE2NjM5MDA3.Xoov7Q.7b8X7XX2uyUDgRD9wl4s3U4j1A4')
-   b.runBot() 
-    #print(token) 
+client = discord.Client()
+@client.event
+async def on_message(message):
+    if message.content.startswith('help buddy'):
+        pass
+        # for key in self.musicPlatformDirectory:
+        #     self.helpmessage += self.musicPlatformDirectory[key]
+        # await message.channel.send(self.helpmessage)
+    if message.content.startswith('go buddy'):
+        tokens = (message.content).split(' ')
+        url = tokens[2]
+        mb = musicbot('Njk2NDM4MzEzMjE2NjM5MDA3.XpYMlA.BP7IY80x-EbPfdgLjSNVWQ3Gdgc')
+        platform = mb.findGivenPlatform(url)
+        await message.channel.send(platform)
+client.run("Njk2NDM4MzEzMjE2NjM5MDA3.XpYMlA.BP7IY80x-EbPfdgLjSNVWQ3Gdgc")

@@ -1,30 +1,21 @@
 import re
 import discord
+import picklerick
 class musicbot:
-
-    musicPlatformDirectory = {"youtube" : 0, 'open.spotify' : 1, 'soundcloud': 2}
-    id = None
-    client = discord.Client() 
+    musicPlatformDirectory = {'youtube' : 'Youtube', 'open.spotify' : 'Spotify', 'soundcloud': 'Soundcloud'}
+    helpmessage = 'Music Buddy currently supports the following platforms: '
+    botToken = None
     def __init__(self, botID):
-        self.id = botID
-        #self.client = discord.Client()
+        self.botToken = botID
 
     
-    @client.event
-    async def on_message(message):
-        if message.content.startswith('hey buddy'):
-            await message.channel.send('Hello!')
-    def runBot(self):
-        self.client.run(self.id)
-    
-    @staticmethod
-    def findGivenPlatform(URL):
+    def findGivenPlatform(self, URL):
         tokens =  URL.split('/')
         platform = tokens[2]
         platform = re.sub('.com','', platform)
         platform = re.sub('www.','',platform)
-        if platform in musicPlatformDirectory:
-            return True
+        if platform in self.musicPlatformDirectory:
+            return self.musicPlatformDirectory[platform] 
         else:
             raiseException("NotSupportedPlatformException")
 
