@@ -104,13 +104,17 @@ class MessagesViewController: MSMessagesAppViewController {
 
         if(fromService == -1){
             //Could not find platform, alert the user
-            presentErrorPopup();
+            presentErrorPopup(message: "Platform currently not supported.");
         }
+        
+        //call alamo function depending on which service the link is from
+        
     }
     
     /**
      Function that parses a link and determines which platform it is from
      - Parameter link: the link being sent to the function
+        - Returns the integer value of the platform in the platform map
      */
     func parseLink(link: String) -> Int{
         if(link.contains("open.spotify.com")){
@@ -126,11 +130,35 @@ class MessagesViewController: MSMessagesAppViewController {
     /**
      Creates an alert popup and presents it to the user
      */
-    func presentErrorPopup() -> Void{
-        let alert = UIAlertController(title: "Error", message: "The platform for this link was not found. ", preferredStyle: UIAlertController.Style.alert)
+    func presentErrorPopup(message: String) -> Void{
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel))
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    /** Calls the Spotify Web API and retrieves song data given a url **/
+    func callAlamoSpotify(url: String){
+        //ensure the link is to a song
+        if(!url.contains("track/")){
+            presentErrorPopup(message: "Album/artist links currently not supported.")
+        }else{
+            /* Trim the song ID from the URL passed in */
+            
+            //let idString = getIdFromLink(url: url)
+        }
+    }
+    
+    /** Returns a substring of the song id given the entire song URL **/
+    func getIdFromLink(url: String) -> String{
+        //sample link (Here Comes the Sun by The Beatles:  https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2?si=naFwHSpwQdWVuMkki9GA4Q
+        //needs to return "6dGnYIeXmHdcikdzNNDMm2"
+        
+        
+        
+        
+        return ""
+    }
+    
 }
