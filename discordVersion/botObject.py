@@ -19,20 +19,45 @@ class musicbot:
         else:
             raiseException("NotSupportedPlatformException")
 
-class searchInterface:
+class search_interface:
     def __init__(self):
         pass
     
-    def searchForMeta():
+    def search():
         pass
 
-    def userMusic():
+    def user_music():
         pass
 
-class releaseInterface:
+class release_interface:
     def __init__(self):
         pass
     def search():
         pass
-    def finalpush():
+    def release():
+        pass
+
+class search_factory:
+    def inp (self, type):
+        if type == 'open.spotify':
+            return spotify_search()
+        if type == 'youtube':
+            return  
+
+
+            
+class spotify_search(search_interface):
+    def __init__(self):
+        pass
+    def search(self):
+        return 'spotify'
+    def user_music():
+        pass
+
+class youtube_search(search_interface):
+    def __init__(self):
+        pass
+    def search():
+        return 'youtube'
+    def user_music():
         pass

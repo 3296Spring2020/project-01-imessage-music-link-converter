@@ -1,8 +1,9 @@
-from botObject import musicbot
+#from botObject import musicbot
+import botObject
 import discord
 import picklerick
 import re
-
+'''
 client = discord.Client()
 @client.event
 async def on_message(message):
@@ -18,3 +19,12 @@ async def on_message(message):
         platform = mb.findGivenPlatform(url)
         await message.channel.send(platform)
 client.run("Njk2NDM4MzEzMjE2NjM5MDA3.XpYMlA.BP7IY80x-EbPfdgLjSNVWQ3Gdgc")
+
+
+
+'''
+
+a = botObject.factory()
+c = a.inp('open.spotify')
+b = c.search()
+print(b)
