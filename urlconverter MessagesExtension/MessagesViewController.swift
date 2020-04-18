@@ -25,7 +25,6 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     // MARK: - Conversation Handling
-    
     override func willBecomeActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the inactive to active state.
         // This will happen when the extension is about to present UI.
@@ -108,7 +107,13 @@ class MessagesViewController: MSMessagesAppViewController {
         }
         
         //call alamo function depending on which service the link is from
-        
+        if(fromService == platforms["Spotify"]){
+            callAlamoSpotify(url: origLink)
+        }else if(fromService == platforms["Apple Music"]){
+            //callAlamoAppleMusic(url: origLink)
+        }else{
+            presentErrorPopup(message: "The result of parseLink did not return a valid platform")
+        }
     }
     
     /**
@@ -147,7 +152,7 @@ class MessagesViewController: MSMessagesAppViewController {
             /* Trim the song ID from the URL passed in */
             
             let idString = getIdFromSpotifyLink(url: url)
-            
+            presentErrorPopup(message: idString)
         }
     }
     
