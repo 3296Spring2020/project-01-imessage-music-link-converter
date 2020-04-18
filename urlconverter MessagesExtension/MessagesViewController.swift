@@ -146,19 +146,22 @@ class MessagesViewController: MSMessagesAppViewController {
         }else{
             /* Trim the song ID from the URL passed in */
             
-            //let idString = getIdFromLink(url: url)
+            let idString = getIdFromSpotifyLink(url: url)
+            
         }
     }
     
-    /** Returns a substring of the song id given the entire song URL **/
-    func getIdFromLink(url: String) -> String{
+    /** Returns a substring of the song id given the entire Spotify song URL **/
+    func getIdFromSpotifyLink(url: String) -> String{
         //sample link (Here Comes the Sun by The Beatles:  https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2?si=naFwHSpwQdWVuMkki9GA4Q
         //needs to return "6dGnYIeXmHdcikdzNNDMm2"
         
+        let beginIndex = url.index(url.firstIndex(of: "k")!, offsetBy: 2)
+        let endIndex = url.firstIndex(of: "?")!
+
+        let newURL = url[beginIndex..<endIndex]
         
-        
-        
-        return ""
+        return String(newURL)
     }
     
 }
