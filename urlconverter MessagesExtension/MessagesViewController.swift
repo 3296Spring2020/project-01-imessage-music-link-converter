@@ -152,7 +152,9 @@ class MessagesViewController: MSMessagesAppViewController {
             /* Trim the song ID from the URL passed in */
             
             let idString = getIdFromSpotifyLink(url: url)
-            presentErrorPopup(message: idString)
+            
+            //as of right now, the program just prints the song ID that will be passed to the GET call
+            presentErrorPopup(message: "ID being passed to function: "+idString)
         }
     }
     
