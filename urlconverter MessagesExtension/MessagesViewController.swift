@@ -99,18 +99,13 @@ class MessagesViewController: MSMessagesAppViewController {
     
         /*  we need to pass this link to a worker function that will
             determine which platform the link is from */
-        let fromService = parseLink(link: origLink);
-
-        if(fromService == -1){
-            //Could not find platform, alert the user
-            presentErrorPopup(message: "Platform currently not supported.");
-        }
+        let serviceId = parseLink(link: origLink);
         
         //call alamo function depending on which service the link is from
-        if(fromService == platforms["Spotify"]){
+        if(serviceId == platforms["Spotify"]){
             callAlamoSpotify(url: origLink)
-        }else if(fromService == platforms["Apple Music"]){
-            //callAlamoAppleMusic(url: origLink)
+        }else if(serviceId == platforms["Apple Music"]){
+            callAlamoAppleMusic(url: origLink)
         }else{
             presentErrorPopup(message: "The result of parseLink did not return a valid platform")
         }
@@ -150,13 +145,27 @@ class MessagesViewController: MSMessagesAppViewController {
             presentErrorPopup(message: "Album/artist links currently not supported.")
         }else{
             /* Trim the song ID from the URL passed in */
-            
             let idString = getIdFromSpotifyLink(url: url)
             
             //as of right now, the program just prints the song ID that will be passed to the GET call
-            presentErrorPopup(message: "ID being passed to function: "+idString)
+            presentErrorPopup(message: "ID being passed to function: \(idString)")
         }
     }
+    
+    /** Calls the Spotify Web API and retrieves song data given a url **/
+    func callAlamoAppleMusic(url: String){
+        //ensure the link is to a song
+        if(!url.contains("?i=")){
+            presentErrorPopup(message: "Only song links are supported at this time.")
+        }else{
+            /* Trim the song ID from the URL passed in */
+            let idString = getIdFromAppleMusicLink(url: url)
+            
+            //as of right now, the program just prints the song ID that will be passed to the GET call
+            presentErrorPopup(message: "ID being passed to function: \(idString)")
+        }
+    }
+
     
     /** Returns a substring of the song id given the entire Spotify song URL **/
     func getIdFromSpotifyLink(url: String) -> String{
@@ -169,6 +178,15 @@ class MessagesViewController: MSMessagesAppViewController {
         let newURL = url[beginIndex..<endIndex]
         
         return String(newURL)
+    }
+    
+    func getIdFromAppleMusicLink(url: String) -> String{
+        //sample link (Here Comes the Sun by The Beatles:  https://music.apple.com/us/album/here-comes-the-sun/1441164426?i=1441164589
+        //needs to return "1441164589"
+        
+        let beginIndex = url.index(url.firstIndex(of: "=")!, offsetBy: 1)
+
+        return String(url[beginIndex...])
     }
     
 }
