@@ -8,6 +8,7 @@
 
 import UIKit
 import Messages
+import Alamofire
 
 class MessagesViewController: MSMessagesAppViewController {
     
@@ -138,17 +139,33 @@ class MessagesViewController: MSMessagesAppViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    /** Calls the Spotify Web API and retrieves song data given a url **/
+    /**
+     Calls the Spotify Web API and retrieves song data given a url
+     - Parameter url: the song link being shared  **/
     func callAlamoSpotify(url: String){
-        //ensure the link is to a song
+        var apiURL = "https://api.spotify.com/v1/tracks/"   //id still needs to be appended
+        let accessToken = "BQCR2H4Z0fnMggOR1DlbPeGFKwvedRE_HlAF9j5mdKSu6--DaW7oODxUsR3RKRHdiRsPHuXQCHwSVvUHmFrYgBmtwe6j_n43qe1rEC8kuCKU58Wy1GkKHGohRj884ensAWIjSbU6Ym_S-xKYDMemDA"   //token to my account
+        
+        //ensure the URL is to a song
         if(!url.contains("track/")){
             presentErrorPopup(message: "Album/artist links currently not supported.")
         }else{
-            /* Trim the song ID from the URL passed in */
-            let idString = getIdFromSpotifyLink(url: url)
+            /* Trim the song ID from the URL passed in, and append the song id */
+            apiURL += getIdFromSpotifyLink(url: url)
+            
+            
+            //now use Alamofire to call the API
+            let headers : HTTPHeaders =  [
+                "Accept":"application/json",
+                "Authorization":"Bearer \(accessToken)"]
+            
+            AF.request(apiURL, headers: headers)
+                .responseJSON { response in
+                    debugPrint(response)
+            }//prints the results to the console window
             
             //as of right now, the program just prints the song ID that will be passed to the GET call
-            presentErrorPopup(message: "ID being passed to function: \(idString)")
+            //presentErrorPopup(message: "ID being passed to function: \(idString)")
         }
     }
     
