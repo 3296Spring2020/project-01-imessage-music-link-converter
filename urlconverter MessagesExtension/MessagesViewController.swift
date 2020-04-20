@@ -10,6 +10,11 @@ import UIKit
 import Messages
 import Alamofire
 
+//decodable struct that represents a song
+struct Song : Decodable {
+    var name : String
+}
+
 class MessagesViewController: MSMessagesAppViewController {
     
     //global variables
@@ -156,11 +161,22 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     /**
+     Creates an alert popup and presents it to the user
+     */
+    func presentSuccessPopup(message: String) -> Void{
+        let alert = UIAlertController(title: "Success", message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    /**
      Calls the Spotify Web API and retrieves song data given a url
      - Parameter url: the song link being shared  **/
     func callAlamoSpotify(url: String){
         var apiURL = "https://api.spotify.com/v1/tracks/"   //id still needs to be appended
-        let accessToken = "BQCR2H4Z0fnMggOR1DlbPeGFKwvedRE_HlAF9j5mdKSu6--DaW7oODxUsR3RKRHdiRsPHuXQCHwSVvUHmFrYgBmtwe6j_n43qe1rEC8kuCKU58Wy1GkKHGohRj884ensAWIjSbU6Ym_S-xKYDMemDA"   //token to my account
+        let accessToken = "BQDrd349ghqw3dUvHCacOk0tBZuOY2-Y3YMpyzG1OASZxjWUyepfTrSpTWqL0Ez3eC4GaNNMkqK7YqYde6NkQStrMeWPfFw0wzaQkTCw8aa-Gz-At90gsmumoUi5oSRjjd_E_f7kJk1fpEW6PsxXxA"  //token to my account (temporary)
         
         //ensure the URL is to a song
         if(!url.contains("track/")){
@@ -177,7 +193,15 @@ class MessagesViewController: MSMessagesAppViewController {
             
             AF.request(apiURL, headers: headers)
                 .responseJSON { response in
+                    
                     debugPrint(response)
+                    
+                    do{
+                        let song = try JSONDecoder().decode(Song.self, from: response.data!)
+                        self.presentSuccessPopup(message: "" + song.name)
+                    }catch{
+                        self.presentErrorPopup(message: "Data gathering failed.")
+                    }
             }//prints the results to the console window
             
             //as of right now, the program just prints the song ID that will be passed to the GET call
