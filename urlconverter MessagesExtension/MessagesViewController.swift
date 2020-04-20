@@ -23,13 +23,11 @@ class MessagesViewController: MSMessagesAppViewController {
     var origLink = "";                          //the original link inputted
     let platforms:[String: Int] = ["Spotify": 0,
                      "Apple Music": 1];         //the map of platforms
-    
-    let backgroundView = UIImageView()
-    
+    let backgroundView = UIImageView()          //user interface view
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground()
+        setBackground() //set up the views for the UI
         // Do any additional setup after loading the view.
     }
     
@@ -115,11 +113,10 @@ class MessagesViewController: MSMessagesAppViewController {
      - Parameter sender: the button being attached
      */
     @IBAction func onClick(_ sender: UIButton) {
-        origLink = textBox.text!;
-        //origLink now contains the link that the user entered
-        print("User entered \(origLink)");
-    
-        /*  we need to pass this link to a worker function that will
+        
+        origLink = textBox.text!;//origLink now contains the link that the user entered
+            
+        /*  we need to pass this link to a function that will
             determine which platform the link is from */
         let serviceId = parseLink(link: origLink);
         
@@ -150,50 +147,26 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     /**
-     Creates an alert popup and presents it to the user
-     */
-    func presentErrorPopup(message: String) -> Void{
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    /**
-     Creates an alert popup and presents it to the user
-     */
-    func presentSuccessPopup(message: String) -> Void{
-        let alert = UIAlertController(title: "Success", message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    /**
      Calls the Spotify Web API and retrieves song data given a url
      - Parameter url: the song link being shared  **/
     func callAlamoSpotify(url: String){
         var apiURL = "https://api.spotify.com/v1/tracks/"   //id still needs to be appended
         let accessToken = "BQDrd349ghqw3dUvHCacOk0tBZuOY2-Y3YMpyzG1OASZxjWUyepfTrSpTWqL0Ez3eC4GaNNMkqK7YqYde6NkQStrMeWPfFw0wzaQkTCw8aa-Gz-At90gsmumoUi5oSRjjd_E_f7kJk1fpEW6PsxXxA"  //token to my account (temporary)
+        let headers : HTTPHeaders =  [
+            "Accept":"application/json",
+            "Authorization":"Bearer \(accessToken)"]
         
         //ensure the URL is to a song
         if(!url.contains("track/")){
-            presentErrorPopup(message: "Album/artist links currently not supported.")
+            presentErrorPopup(message: "Link must be to a specific track. Please try again.")
         }else{
             /* Trim the song ID from the URL passed in, and append the song id */
             apiURL += getIdFromSpotifyLink(url: url)
             
-            
             //now use Alamofire to call the API
-            let headers : HTTPHeaders =  [
-                "Accept":"application/json",
-                "Authorization":"Bearer \(accessToken)"]
-            
             AF.request(apiURL, headers: headers)
                 .responseJSON { response in
-                    
+                    //print the repsonse to the console window
                     debugPrint(response)
                     
                     do{
@@ -202,10 +175,7 @@ class MessagesViewController: MSMessagesAppViewController {
                     }catch{
                         self.presentErrorPopup(message: "Data gathering failed.")
                     }
-            }//prints the results to the console window
-            
-            //as of right now, the program just prints the song ID that will be passed to the GET call
-            //presentErrorPopup(message: "ID being passed to function: \(idString)")
+            }
         }
     }
     
@@ -222,7 +192,6 @@ class MessagesViewController: MSMessagesAppViewController {
             presentErrorPopup(message: "ID being passed to function: \(idString)")
         }
     }
-
     
     /** Returns a substring of the song id given the entire Spotify song URL **/
     func getIdFromSpotifyLink(url: String) -> String{
@@ -244,5 +213,27 @@ class MessagesViewController: MSMessagesAppViewController {
         let beginIndex = url.index(url.firstIndex(of: "=")!, offsetBy: 1)
 
         return String(url[beginIndex...])
+    }
+
+    /**
+     Creates an alert popup and presents it to the user
+     */
+    func presentErrorPopup(message: String) -> Void{
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    /**
+     Creates an alert popup and presents it to the user
+     */
+    func presentSuccessPopup(message: String) -> Void{
+        let alert = UIAlertController(title: "Success", message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
