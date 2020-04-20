@@ -19,10 +19,26 @@ class MessagesViewController: MSMessagesAppViewController {
     let platforms:[String: Int] = ["Spotify": 0,
                      "Apple Music": 1];         //the map of platforms
     
+    let backgroundView = UIImageView()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackground()
         // Do any additional setup after loading the view.
+    }
+    
+    func setBackground(){
+        
+        view.addSubview(backgroundView)
+        backgroundView.adjustsImageSizeForAccessibilityContentSizeCategory = false
+        backgroundView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        backgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        backgroundView.image = UIImage(named: "")
+            
     }
     
     // MARK: - Conversation Handling
@@ -205,5 +221,4 @@ class MessagesViewController: MSMessagesAppViewController {
 
         return String(url[beginIndex...])
     }
-    
 }

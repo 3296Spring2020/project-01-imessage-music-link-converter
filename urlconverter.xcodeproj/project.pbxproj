@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		60DB291823E920F100C1A0FD /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DB291723E920F100C1A0FD /* MessagesViewController.swift */; };
 		60DB291B23E920F100C1A0FD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60DB291923E920F100C1A0FD /* MainInterface.storyboard */; };
 		60DB291D23E920F100C1A0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DB291C23E920F100C1A0FD /* Assets.xcassets */; };
+		B693A8FA244CF5B800B80C13 /* SAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B693A8F9244CF5B800B80C13 /* SAButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		60DB291A23E920F100C1A0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		60DB291C23E920F100C1A0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60DB291E23E920F100C1A0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B693A8F9244CF5B800B80C13 /* SAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAButton.swift; sourceTree = "<group>"; };
 		C5FBD83B6A361711C8D69800 /* Pods-urlconverter MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-urlconverter MessagesExtension.debug.xcconfig"; path = "Target Support Files/Pods-urlconverter MessagesExtension/Pods-urlconverter MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		E43E3333094CAAE5EE98B365 /* Pods-urlconverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-urlconverter.debug.xcconfig"; path = "Target Support Files/Pods-urlconverter/Pods-urlconverter.debug.xcconfig"; sourceTree = "<group>"; };
 		EC7E5FF78C0C9127AC83C2D3 /* Pods-urlconverter MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-urlconverter MessagesExtension.release.xcconfig"; path = "Target Support Files/Pods-urlconverter MessagesExtension/Pods-urlconverter MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +90,6 @@
 				C5FBD83B6A361711C8D69800 /* Pods-urlconverter MessagesExtension.debug.xcconfig */,
 				EC7E5FF78C0C9127AC83C2D3 /* Pods-urlconverter MessagesExtension.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -138,6 +139,7 @@
 				60DB291923E920F100C1A0FD /* MainInterface.storyboard */,
 				60DB291C23E920F100C1A0FD /* Assets.xcassets */,
 				60DB291E23E920F100C1A0FD /* Info.plist */,
+				B693A8F9244CF5B800B80C13 /* SAButton.swift */,
 			);
 			path = "urlconverter MessagesExtension";
 			sourceTree = "<group>";
@@ -310,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60DB291823E920F100C1A0FD /* MessagesViewController.swift in Sources */,
+				B693A8FA244CF5B800B80C13 /* SAButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
