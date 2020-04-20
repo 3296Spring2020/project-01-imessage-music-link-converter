@@ -8,9 +8,6 @@ client = discord.Client()
 @client.event
 async def on_message(message):
     if message.content.startswith('help buddy'):
-        #pass
-        # for key in self.musicPlatformDirectory:
-        #     self.helpmessage += self.musicPlatformDirectory[key]
         mb = botObject.musicbot('')
         await message.channel.send(mb.helpmessage)
     if message.content.startswith('go buddy'):
@@ -20,8 +17,9 @@ async def on_message(message):
         platform = mb.findGivenPlatform(url)
         search_creation_object = botObject.search_factory()
         search_object = search_creation_object.create_search(platform)
-        post_search = search_object.search(url)
-        await message.channel.send(post_search)
+        meta_data = search_object.search(url)
+        result_string = "Artist: " + meta_data['artist'] + '\nAlbum: ' + meta_data['album'] + "\nSong: " + meta_data['song'] 
+        await message.channel.send(result_string)
 client.run("Njk2NDM4MzEzMjE2NjM5MDA3.XpYMlA.BP7IY80x-EbPfdgLjSNVWQ3Gdgc")
 
 

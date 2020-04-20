@@ -64,7 +64,7 @@ class spotify_search(search_interface):
         song_ID[0] = song_ID[0][:-1] 
         song = self.spotify_object.track(song_ID[1])
         meta_data = {"artist" : song['artists'][0]['name'] , 'album' :  song['album']['name'] , "song": song['name'] }
-        return meta_data2
+        return meta_data
     def user_music():
         pass
 
