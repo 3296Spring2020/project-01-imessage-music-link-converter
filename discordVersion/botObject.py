@@ -1,12 +1,14 @@
 import re
 import discord
 import spotipy
+import deezer
 from spotipy.oauth2 import SpotifyClientCredentials
 
 class musicbot:
     musicPlatformDirectory = {'youtube' : 'Youtube', 'open.spotify' : 'Spotify', 'soundcloud': 'Soundcloud'}
-    helpmessage = 'Music Buddy currently supports the following platforms: '
+    helpmessage = 'Music Buddy currently supports the following platforms: Spotify, Deezer'
     botToken = None
+    
     def __init__(self, botID):
         self.botToken = botID
 
@@ -63,15 +65,20 @@ class spotify_search(search_interface):
         song_ID = seperate.split('/')
         song_ID[0] = song_ID[0][:-1] 
         song = self.spotify_object.track(song_ID[1])
-        meta_data = {"artist" : song['artists'][0]['name'] , 'album' :  song['album']['name'] , "song": song['name'] }
+        meta_data = {"artist" : song['artists'][0]['name'] , 'album' :  song['album']['name'] , "song": song['name'] , "release" : song['album']['release_date'] }
         return meta_data
     def user_music():
         pass
 
-class youtube_search(search_interface):
+class deezer_search(search_interface):
     def __init__(self):
-        pass
+        self.app_ID = '408302'
+        self.secret_key = '625152fbf950ee7b70ee61fb6988aab2'
+        self.client = deezer.Client(app_id= self.app_ID , app_secret = self.secret_key)
+        
     def search():
         return 'youtube'
-    def user_music():
-        pass
+    def user_music(self, meta_data):
+        query = self.client.search(meta_data['song'])
+        url = query[0].link
+        return ap3

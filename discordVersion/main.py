@@ -18,8 +18,10 @@ async def on_message(message):
         search_creation_object = botObject.search_factory()
         search_object = search_creation_object.create_search(platform)
         meta_data = search_object.search(url)
-        result_string = "Artist: " + meta_data['artist'] + '\nAlbum: ' + meta_data['album'] + "\nSong: " + meta_data['song'] 
-        await message.channel.send(result_string)
+        result_string = "Artist: " + meta_data['artist'] + '\nAlbum: ' + meta_data['album'] + "\nSong: " + meta_data['song']  + "\nRelease Date: " + meta_data['release']
+        a = botObject.deezer_search()
+        b = a.user_music(meta_data)
+        await message.channel.send(b)
 client.run("Njk2NDM4MzEzMjE2NjM5MDA3.XpYMlA.BP7IY80x-EbPfdgLjSNVWQ3Gdgc")
 
 
