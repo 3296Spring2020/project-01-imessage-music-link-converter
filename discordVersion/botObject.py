@@ -5,23 +5,31 @@ import deezer
 from spotipy.oauth2 import SpotifyClientCredentials
 
 class musicbot:
-    musicPlatformDirectory = {'youtube' : 'Youtube', 'open.spotify' : 'Spotify', 'soundcloud': 'Soundcloud'}
-    helpmessage = 'Music Buddy currently supports the following platforms: Spotify, Deezer'
-    botToken = None
+    music_platform_directory = {'youtube' : 'Youtube', 'open.spotify' : 'Spotify', 'soundcloud': 'Soundcloud', 'deezer' : 'Deezer'}
+    help_message = 'Music Buddy currently supports the following platforms: Spotify, Deezer'
+    bot_token = None
     
     def __init__(self, botID):
-        self.botToken = botID
+        self.bot_token = botID
 
     
-    def findGivenPlatform(self, URL):
+    def find_given_platform(self, URL):
         tokens =  URL.split('/')
         platform = tokens[2]
         platform = re.sub('.com','', platform)
         platform = re.sub('www.','',platform)
-        if platform in self.musicPlatformDirectory:
-            return self.musicPlatformDirectory[platform] 
+        if platform in self.music_platform_directory:
+            return self.music_platform_directory[platform] 
         else:
-            raiseException("NotSupportedPlatformException")
+            raiseException("find_given_platform() ---> Not Supported Platform Exception")
+
+    def find_target_platform (self, user_input):
+        tokens = user_input.split(' ')
+        target = tokens[3]
+        if target in self.music_platform_directory:
+            return self.music_platform_directory[target]
+        else:
+            raiseException("find_target_platform() ---> Not Supported Platform Exception")
 
 class search_interface:
     def __init__(self):
@@ -45,10 +53,10 @@ class search_factory:
     def create_search (self, type):
         if type == 'Spotify':
             return spotify_search()
-        if type == 'Youtube':
-            return  
+        if type == 'Deezer':
+            return  deezer_search()
         else:
-            return 'dairy'
+            raiseException("create_search() ----> Unable to Create Search Object")
 
 
             
